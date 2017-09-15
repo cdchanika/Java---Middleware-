@@ -1,0 +1,39 @@
+import java.io.IOException;
+import java.io.File;
+
+class Register{
+	
+	public static void registerService(String sname, Service obj){
+		try{
+			
+			if(lookup(sname)==null){
+				Server.sr[Server.last] = new ServiceRegistry(sname, obj); 
+				(Server.last)++;
+				System.out.println("Service: "+sname+" successfully registered..");
+			}else{
+				System.out.println("Service name: "+sname+" already exists. Use a different service name..");
+			}
+			
+		}catch(Exception e){
+			e.getMessage();
+		}
+	}
+
+	public static Service lookup(String sname) throws IOException{
+		
+		try{
+			
+			for(int i=0;i<Server.sr.length && Server.sr[i]!=null;i++){
+				
+				if(sname.equals(Server.sr[i].name)){
+					return Server.sr[i].service;
+				}
+			}
+				
+		}catch(Exception e){
+			e.getMessage();
+		}
+					
+		return null;
+	}	
+}

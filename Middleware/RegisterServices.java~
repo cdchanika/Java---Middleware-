@@ -1,0 +1,13 @@
+class RegisterServices{		
+	public static void startRegistering(String args[]){
+		//Register service1
+		String serviceName = "ADD";
+		Service1 newServ = new Service1(serviceName);
+		Register.registerService(serviceName,newServ);
+
+		//Register service2
+		String serviceName2 = "EXP";
+		Service2 serv2 = new Service2(serviceName2);
+		Register.registerService(serviceName2,serv2);	
+	}
+}
